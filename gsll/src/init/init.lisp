@@ -36,7 +36,7 @@
     "A wrapper for tool `gsl-config'."
     (with-input-from-string
         (s (with-output-to-string (asdf::*verbose-out*)
-             (asdf:run-shell-command "gsl-config ~s" arg)))
+             (uiop:run-program (format nil "gsl-config ~s" arg))))
       (read-line s)
       (read-line s))))
 
